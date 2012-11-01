@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="netmeeting" default="dist" basedir=".">
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="web.dir" value="${basedir}/web" />
+	<property name="doc.dir" value="${basedir}/javadoc" />
+	<property name="dist.dir" value="${basedir}/dist" />
+	<property name="dist.web.dir" value="${dist.dir}/web" />
+	<property name="dist.apache.dir" value="${dist.dir}/apache" />
+	<property name="dist.database.dir" value="${dist.dir}/database" />
+	<property name="dist.data.dir" value="${dist.dir}/data" />
+	<property name="dist.imagemagick.dir" value="${dist.dir}/imagemagick" />
+	<property name="dist.jod.dir" value="${dist.dir}/jod" />
+	<property name="dist.red5.dir" value="${dist.dir}/red5" />
+	<property name="build.dir.classes" value="${build.dir}/classes" />
+	<property name="build.dir.applet.classes" value="${build.dir.classes}/applet" />
+
+	<path id="all.path">
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.zip" />
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.dll" />
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.exe" />
+	</path>
+
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir.classes}" />
+		<mkdir dir="${build.dir.applet.classes}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.apache.dir}" />
+		<mkdir dir="${dist.database.dir}" />
+	</target>
+
+	<target name="build" depends="init">
+		<javac debug="true" encoding="GBK" srcdir="${src.dir}" destdir="${build.dir.classes}" deprecation="off" nowarn="on">
+			<include name="**/*.java" />
+			<classpath refid="all.path" />
+		</javac>
+		<copy todir="${build.dir.classes}">
+			<fileset dir="${src.dir}" includes="META-INF/**" />
+			<fileset dir="${src.dir}" includes="*.properties,*.xml" />
+		</copy>
+		<copy todir="${build.dir.classes}">
+			<fileset dir="${src.dir}" includes="resources/**" />
+		</copy>
+		<jar destfile="${web.dir}/WEB-INF/lib/${ant.project.name}.jar" basedir="${build.dir.classes}" />
+	</target>
+
+	<target name="dist" depends="build">
+		<copy todir="${dist.apache.dir}">
+			<fileset dir="${basedir}/apache">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.database.dir}">
+			<fileset dir="${basedir}/database">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.data.dir}">
+			<fileset dir="${basedir}/data">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.imagemagick.dir}">
+			<fileset dir="${basedir}/imagemagick">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.jod.dir}">
+			<fileset dir="${basedir}/jod">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.red5.dir}">
+			<fileset dir="${basedir}/red5">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.web.dir}">
+			<fileset dir="${web.dir}">
+				<include name="**/*" />
+				<exclude name="WEB-INF/classes/**" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}">
+			<fileset dir="${basedir}">
+				<include name="run.bat" />
+				<include name="winservice.dll" />
+			</fileset>
+		</copy>
+		<antcall target="clean" />
+	</target>
+
+	<property name="server_JAR" value="screenServer.jar" />
+	<property name="certification" value="ScreenServerProxy.cert" />
+	<property name="keystore" value="ScreenServerProxy.store" />
+	<property name="alias" value="ScreenServerProxy" />
+	<property name="storepass" value="ScreenServerProxy" />
+	<property name="dname.CN" value="china" />
+	<property name="dname.OU" value="ScreenServerProxy" />
+	<property name="dname.OU" value="ScreenServerProxy" />
+	<property name="dname.O" value="ScreenServerProxy" />
+	<property name="dname.L" value="ScreenServerProxy" />
+	<property name="dname.ST" value="ScreenServerProxy" />
+	<property name="dname.C" value="ScreenServerProxy" />
+	<target name="genkey" depends="build">
+		<echo message="genkey..." />
+		<delete file="${build.dir}/${keystore}" />
+		<delete file="${build.dir}/${certification}" />
+		<genkey alias="${alias}" storepass="${storepass}" keystore="${build.dir}/${keystore}" validity="3650" verbose="true">
+			<dname>
+				<param name="CN" value="${dname.CN}" />
+				<param name="OU" value="${dname.OU}" />
+				<param name="O" value="${dname.O}" />
+				<param name="L" value="${dname.L}" />
+				<param name="ST" value="${dname.ST}" />
+				<param name="C" value="${dname.C}" />
+			</dname>
+		</genkey>
+		<exec executable="keytool">
+			<arg line="-export" />
+			<arg line="-keystore ${build.dir}/${keystore}" />
+			<arg line="-storepass ${storepass}" />
+			<arg line="-alias ${alias}" />
+			<arg line="-file ${build.dir}/${certification}" />
+		</exec>
+		<copy todir="${build.dir.applet.classes}/com/meeting/web/applet/server">
+			<fileset dir="${build.dir}" includes="*.store" />
+		</copy>
+		<echo message="genkey...done." />
+	</target>
+
+	<target name="build_Applet" depends="init">
+		<javac debug="true" encoding="GBK" srcdir="${src.dir}" destdir="${build.dir.applet.classes}" deprecation="off" nowarn="on">
+			<include name="com/meeting/web/applet/server/*.*" />
+			<classpath refid="all.path" />
+		</javac>
+		<copy todir="${build.dir.applet.classes}/com/meeting/web/applet/server">
+			<fileset dir="${src.dir}/com/meeting/web/applet/server" includes="*.exe,*.dll" />
+		</copy>
+	</target>
+
+	<target name="sign_Applet" depends="build_Applet,genkey">
+		<echo message="jarsigner..." />
+		<jar destfile="${build.dir}/${server_JAR}" basedir="${build.dir.applet.classes}" />
+
+		<signjar destDir="${dist.dir}" alias="${alias}" keystore="${build.dir}/${keystore}" storepass="${storepass}" verbose="true">
+			<path>
+				<fileset dir="${build.dir}" includes="${server_JAR}" />
+			</path>
+		</signjar>
+		<copy todir="${web.dir}">
+			<fileset dir="${dist.dir}">
+				<include name="${server_JAR}" />
+			</fileset>
+		</copy>
+		<echo message="jarsigner...done." />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+</project>

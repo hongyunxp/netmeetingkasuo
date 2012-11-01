@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="screenApplet" default="sign" basedir=".">
+
+	<property name="src.dir" value="${basedir}/applet" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="build.dir.applet" value="${basedir}/build/applet" />
+	<property name="web.dir" value="${basedir}/web" />
+	<property name="dist.dir" value="${basedir}/dist" />
+
+	<path id="all.path">
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.zip" />
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.dll" />
+		<fileset dir="${web.dir}/WEB-INF/lib" includes="*.exe" />
+	</path>
+
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir.applet}" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+	<property name="certification" value="ScreenServerProxy.cert" />
+	<property name="keystore" value="ScreenServerProxy.store" />
+	<property name="alias" value="ScreenServerProxy" />
+	<property name="storepass" value="ScreenServerProxy" />
+	<property name="dname.CN" value="china" />
+	<property name="dname.OU" value="ScreenServerProxy" />
+	<property name="dname.OU" value="ScreenServerProxy" />
+	<property name="dname.O" value="ScreenServerProxy" />
+	<property name="dname.L" value="ScreenServerProxy" />
+	<property name="dname.ST" value="ScreenServerProxy" />
+	<property name="dname.C" value="ScreenServerProxy" />
+	<target name="genkey" depends="init">
+		<echo message="genkey..." />
+		<delete file="${build.dir.applet}/${keystore}" />
+		<delete file="${build.dir.applet}/${certification}" />
+		<genkey alias="${alias}" storepass="${storepass}" keystore="${build.dir.applet}/${keystore}" validity="3650" verbose="true">
+			<dname>
+				<param name="CN" value="${dname.CN}" />
+				<param name="OU" value="${dname.OU}" />
+				<param name="O" value="${dname.O}" />
+				<param name="L" value="${dname.L}" />
+				<param name="ST" value="${dname.ST}" />
+				<param name="C" value="${dname.C}" />
+			</dname>
+		</genkey>
+		<exec executable="keytool">
+			<arg line="-export" />
+			<arg line="-keystore ${build.dir.applet}/${keystore}" />
+			<arg line="-storepass ${storepass}" />
+			<arg line="-alias ${alias}" />
+			<arg line="-file ${build.dir.applet}/${certification}" />
+		</exec>
+		<echo message="genkey...done." />
+	</target>
+
+	<target name="build" depends="genkey">
+		<javac debug="true" encoding="GBK" srcdir="${src.dir}" destdir="${build.dir.applet}" deprecation="off" nowarn="on">
+			<include name="**/*.java" />
+			<classpath refid="all.path" />
+		</javac>
+		<copy todir="${build.dir.applet}">
+			<fileset dir="${src.dir}" includes="**/*.exe,**/*.dll" />
+		</copy>
+		<move todir="${build.dir.applet}/vnc">
+			<fileset dir="${build.dir.applet}" includes="*.cert,*.store" />
+		</move>
+	</target>
+
+	<target name="jar" depends="build">
+		<jar destfile="${build.dir}/${ant.project.name}.jar" basedir="${build.dir.applet}" />
+	</target>
+
+	<target name="sign" depends="jar">
+		<echo message="jarsigner..." />
+		<signjar destDir="${dist.dir}" alias="${alias}" keystore="${build.dir.applet}/vnc/${keystore}" storepass="${storepass}" verbose="true">
+			<path>
+				<fileset dir="${build.dir}" includes="${ant.project.name}.jar" />
+			</path>
+		</signjar>
+		<copy todir="${web.dir}">
+			<fileset dir="${dist.dir}">
+				<include name="${ant.project.name}.jar" />
+			</fileset>
+		</copy>
+		<echo message="jarsigner...done." />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+</project>

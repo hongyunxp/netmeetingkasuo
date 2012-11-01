@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+html{
+	overflow:hidden;
+	}
+.input_on{
+	border:1px solid #00a0e9;
+}
+.input_off{
+	border:1px solid #a0a0a0;
+}
+.input_move{
+	border:1px solid #58c9f4;
+}
+.input_out{
+	border:1px solid #a0a0a0;
+}
+.style_s{
+	font-size:12px;
+	font-family:"宋体";
+	color:#666666;
+	}
+body {
+	background:#FFFFFF;
+	background-attachment:fixed;
+	font:12px "宋体";
+	color:#000000;
+	margin:0px auto;
+	text-align:center;
+}
+#container {
+	width:625px;
+	overflow:hidden;
+	margin:0px auto;
+	text-align:center;
+	}
+#main {
+	background:url(../images/login/load_bg_04.jpg) no-repeat;
+	width:625px;
+	height:300px;
+	margin:0px auto;
+	}
+#logo {
+	float:right;
+	clear:right;
+	overflow:hidden;
+	position:relative;
+	top:40px;
+	right:60px;
+	/*margin-right:80px;
+	margin-top:60px;*/
+	}
+#input {
+	text-align:left;
+	position:relative;
+	float:left;
+	clear:left;
+	overflow:hidden;
+	top:197px;
+	left:40px;
+	}
+#banquan {
+	font-family:Arial;
+	color:#a0a0a0;
+	width:98%;
+	float:left;
+	clear:left;
+	text-align:right;
+	overflow:hidden;
+	position:relative;
+	bottom:15px;
+	}
+

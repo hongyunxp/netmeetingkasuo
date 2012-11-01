@@ -1,0 +1,274 @@
+@CHARSET "UTF-8";
+
+.netmeeting_refresh {
+    background-image:url(../images/netmeeting/meeting_refresh.png) !important;
+}
+
+.netmeeting_info {
+    background-image:url(../images/netmeeting/netmeeting_info.png) !important;
+}
+
+.userlist_menu{
+    background-image:url(../images/netmeeting/userlist_menu.png) !important;
+}
+
+.ext_menu_meeting {
+    background-image:url(../images/netmeeting/ext_menu_meeting.png) !important;
+}
+
+.ext_menu_document {
+    background-image:url(../images/netmeeting/ext_menu_document.png) !important;
+}
+
+.ext_menu_user {
+    background-image:url(../images/netmeeting/ext_menu_user.png) !important;
+}
+
+.ext_menu_msetting {
+    background-image:url(../images/netmeeting/ext_menu_msetting.gif) !important;
+}
+
+.ext_menu_usetting {
+    background-image:url(../images/netmeeting/ext_menu_usetting.gif) !important;
+}
+
+.ext_menu_user_add {
+    background-image:url(../images/netmeeting/ext_menu_user_add.png) !important;
+}
+
+.ext_menu_user_list {
+    background-image:url(../images/netmeeting/ext_menu_user_list.png) !important;
+}
+
+.ext_menu_user_search {
+    background-image:url(../images/netmeeting/ext_menu_user_search.png) !important;
+}
+
+.meeting_config {
+    background-image:url(../images/netmeeting/meeting_config.png) !important;
+}
+
+.meeting_logout {
+    background-image:url(../images/netmeeting/meeting_logout.png) !important;
+}
+
+.meeting_exit {
+    background-image:url(../images/netmeeting/meeting_exit.png) !important;
+}
+
+.netmeeting_remove {
+    background-image:url(../images/netmeeting/netmeeting_delete.gif) !important;
+}
+
+.netmeeting_handup {
+    background-image:url(../images/netmeeting/netmeeting_hand.png) !important;
+}
+
+.netmeeting_microphone {
+    background-image:url(../images/netmeeting/netmeeting_microphone.png) !important;
+}
+
+.netmeeting_lock {
+    background-image:url(../images/netmeeting/netmeeting_lock.png) !important;
+}
+
+.netmeeting_unlock {
+    background-image:url(../images/netmeeting/netmeeting_unlock.png) !important;
+}
+
+.netmeeting_operation {
+    background-image:url(../images/netmeeting/netmeeting_operation.gif) !important;
+}
+
+.netmeeting_meeting {
+    background-image:url(../images/netmeeting/netmeeting_meeting.png) !important;
+}
+
+.chat_menu{
+    background-image:url(../images/netmeeting/chat_menu.png) !important;
+}
+
+.chat_smile {
+    background-image:url(../images/netmeeting/chat_smile.gif) !important;
+}
+
+.chat_remove {
+    background-image:url(../images/netmeeting/chat_remove.gif) !important;
+}
+
+.chat_removeAll {
+    background-image:url(../images/netmeeting/chat_removeAll.gif) !important;
+}
+
+.chat_save {
+    background-image:url(../images/netmeeting/chat_save.gif) !important;
+}
+
+.chat_fullScreen {
+    background-image:url(../images/netmeeting/chat_fullScreen.gif) !important;
+}
+
+.doc_share{
+   background-image:url(../images/netmeeting/doc_share.png) !important; 
+}
+
+.doc_new{
+    background-image:url(../images/netmeeting/netmeeting_newdoc.gif) !important;
+}
+
+.doc_next{
+    background-image:url(../images/netmeeting/doc_next.gif) !important;
+}
+
+.doc_pre{
+    background-image:url(../images/netmeeting/doc_pre.gif) !important;
+}
+
+.doc_zoomin{
+    background-image:url(../images/netmeeting/doc_zoomin.gif) !important;
+}
+
+.doc_zoomout{
+    background-image:url(../images/netmeeting/doc_zoomout.gif) !important;
+}
+
+.doc_autoplay{
+    background-image:url(../images/netmeeting/doc_autoplay.png) !important;
+}
+
+.doc_save{
+    background-image:url(../images/netmeeting/doc_save.gif) !important;
+}
+
+.whiteboard_new{
+    background-image:url(../images/netmeeting/netmeeting_newboard.gif) !important;
+}
+
+.whiteboard_pen{
+    background-image:url(../images/netmeeting/whiteboard_pen.png) !important;
+}
+
+.whiteboard_text{
+    background-image:url(../images/netmeeting/whiteboard_text.png) !important;
+}
+
+.whiteboard_undo{
+    background-image:url(../images/netmeeting/whiteboard_undo.png) !important;
+}
+
+.whiteboard_redo{
+    background-image:url(../images/netmeeting/whiteboard_redo.png) !important;
+}
+
+.whiteboard_trash{
+    background-image:url(../images/netmeeting/whiteboard_trash.gif) !important;
+}
+
+.whiteboard_rect{
+    background-image:url(../images/netmeeting/whiteboard_rect.png) !important;
+}
+
+.whiteboard_ellipse{
+    background-image:url(../images/netmeeting/whiteboard_ellipse.png) !important;
+}
+
+.whiteboard_line{
+    background-image:url(../images/netmeeting/whiteboard_line.png) !important;
+}
+
+.whiteboard_arrow{
+    background-image:url(../images/netmeeting/whiteboard_arrow.png) !important;
+}
+
+.whiteboard_color{
+    background-image:url(../images/netmeeting/whiteboard_color.png) !important;
+}
+
+.whiteboard_hand{
+    background-image:url(../images/netmeeting/whiteboard_hand.png) !important;
+}
+
+.whiteboard_enable{
+    background-image:url(../images/netmeeting/whiteboard_enable.png) !important;
+}
+
+.whiteboard_disable{
+    background-image:url(../images/netmeeting/whiteboard_disable.png) !important;
+}
+
+.screenShare_fullscreen{
+    background-image:url(../images/netmeeting/screenShare_fullscreen.png) !important;
+}
+
+.screenShare_pause{
+    background-image:url(../images/netmeeting/screenShare_pause.png) !important;
+}
+
+.screenShare_stop{
+    background-image:url(../images/netmeeting/screenShare_stop.png) !important;
+}
+
+.screenShare_start{
+    background-image:url(../images/netmeeting/screenShare_start.png) !important;
+}
+
+.screenShare_refresh{
+    background-image:url(../images/netmeeting/screenShare_refresh.png) !important;
+}
+
+.screenShare_save{
+    background-image:url(../images/netmeeting/chat_save.gif) !important;
+}
+
+.screenShare_monitor{
+    background-image:url(../images/netmeeting/screenShare_.png) !important;
+}
+
+.screenShare_add{
+    background-image:url(../images/netmeeting/screenShare_add.png) !important;
+}
+
+.screenShare_delete{
+    background-image:url(../images/netmeeting/screenShare_delete.png) !important;
+}
+
+.desktopControl_menu{
+    background-image:url(../images/netmeeting/desktopControl_.png) !important;
+}
+
+.desktopControl_quit{
+     background-image:url(../images/netmeeting/desktopControl_quit.png) !important;
+}
+
+.documentDispatch_menu{
+    background-image:url(../images/netmeeting/documentDispatch_menu.png) !important;
+}
+
+
+.videoShare_camera{
+    background-image:url(../images/netmeeting/videoShare_camera.png) !important;
+}
+
+.videoShare_add{
+    background-image:url(../images/netmeeting/videoShare_add.png) !important;
+}
+
+.videoShare_remove{
+    background-image:url(../images/netmeeting/videoShare_remove.png) !important;
+}
+
+.videoShare_film{
+    background-image:url(../images/netmeeting/videoShare_film.png) !important;
+}
+
+.audioShare{
+    background-image:url(../images/netmeeting/audioShare.png) !important;
+}
+
+.audioShare_add{
+    background-image:url(../images/netmeeting/audioShare_add.png) !important;
+}
+
+.audioShare_del{
+    background-image:url(../images/netmeeting/audioShare_del.png) !important;
+}

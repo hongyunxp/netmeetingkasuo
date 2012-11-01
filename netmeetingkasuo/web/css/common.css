@@ -1,0 +1,277 @@
+html, body {
+	font:normal 14px verdana;
+	margin:0;
+	padding:0;
+	border:0 none;
+	height:100%;
+	background-color: #ffffff;
+	overflow-x:hidden;
+	overflow-y:audo;
+}
+
+form{
+    margin:0;
+}
+
+a {
+	font-size:11px;
+	color: #006699;
+	text-decoration: none;
+}
+a:visited {
+	font-size:11px;
+	color: #006699;
+	text-decoration: none;
+}
+a:hover {
+	font-size:11px;
+	color: red;
+	text-decoration: none;
+}
+a:active {
+	font-size:11px;
+	color: #000000;
+	text-decoration: none;
+}
+
+.reg_table{
+    width:100%;
+    margin-top:15px;
+}
+
+.reg_td{
+	font:normal 13px verdana;
+	width:150px;
+	height:25px;
+	text-align:right;
+}
+
+.reg_input{
+	height:22px;
+	font-size:12px;
+	BORDER-RIGHT: #BBBBBB 1px solid;
+	BORDER-TOP: #BBBBBB 1px solid;
+	FONT-SIZE: 10pt;
+	BORDER-LEFT: #BBBBBB 1px solid;
+	BORDER-BOTTOM: #BBBBBB 1px solid;
+	FONT-FAMILY: "Tahoma";
+	BACKGROUND-color: #f8f8f8;
+	width: 250px;
+}
+
+.reg_input_readonly{
+    height:22px;
+    font-size:12px;
+    BORDER-RIGHT: #BBBBBB 1px solid;
+    BORDER-TOP: #BBBBBB 1px solid;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #BBBBBB 1px solid;
+    BORDER-BOTTOM: #BBBBBB 1px solid;
+    FONT-FAMILY: "Tahoma";
+    BACKGROUND-color: #CCCCCC;
+    width: 250px;
+}
+
+.reg_verify{
+    height:22px;
+    font-size:12px;
+    line-height:22px;
+    BORDER-RIGHT: #BBBBBB 1px solid;
+    BORDER-TOP: #BBBBBB 1px solid;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #BBBBBB 1px solid;
+    BORDER-BOTTOM: #BBBBBB 1px solid;
+    FONT-FAMILY: "Tahoma";
+    BACKGROUND-color: #f8f8f8;
+    width: 80px;
+}
+
+.menu_img{
+    margin-left:20px;
+    margin-right:8px;
+    width:20px;
+}
+
+.menu_table{
+    margin:0;
+    padding:0;
+    width:100%;
+    border:0;
+}
+
+.menu_td{
+    font:normal 12px verdana;
+    height:25px;
+    border-bottom:solid 1px #cccccc;
+    cursor:hand;
+}
+
+
+.hour_input{
+    height:22px;
+    font-size:12px;
+    BORDER-RIGHT: #BBBBBB 1px solid;
+    BORDER-TOP: #BBBBBB 1px solid;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #BBBBBB 1px solid;
+    BORDER-BOTTOM: #BBBBBB 1px solid;
+    FONT-FAMILY: "Tahoma";
+    BACKGROUND-color: #f8f8f8;
+    width: 50px;
+}
+
+.meeting_agenda{
+    height:50px;
+    font-size:12px;
+    BORDER-RIGHT: #BBBBBB 1px solid;
+    BORDER-TOP: #BBBBBB 1px solid;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #BBBBBB 1px solid;
+    BORDER-BOTTOM: #BBBBBB 1px solid;
+    FONT-FAMILY: "Tahoma";
+    BACKGROUND-color: #f8f8f8;
+    width: 250px;
+}
+
+
+.inputArea{
+    overflow-x:hidden;
+    overflow-y:hidden;
+    border:0px;
+    text-align:left;
+    background-color:#fff;
+    font-size:9pt; 
+    width:100%;
+    height:45px;
+}
+
+#UserListSouthDiv{
+    background-image:url(../images/toolbar/bg.gif);
+    height:24px;
+    position:relative;
+}
+
+#laughfaces{
+    position:absolute;
+    left:3px;
+    bottom:12px;
+    background-color:#fff;
+    z-index:999999;
+    border:1px dotted red;
+    opacity:60;
+    display:none;
+}
+
+#ChatNorthDiv{
+    font-size:11px;
+    margin:0px auto;
+    text-align:left;
+    line-height:18px;
+    padding-left:0px;
+    padding-right:0px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+#ChatNorthDiv2{
+    font-size:11px;
+    margin:0px auto;
+    text-align:left;
+    line-height:18px;
+    padding-left:0px;
+    padding-right:0px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+
+.chat_table{
+    width:100%;
+    border:0;
+    font-size:12px;
+}
+
+.chat_tr{
+    background-color:#D6E3F2;
+}
+
+.chat_td_1{
+    width:30%;
+    padding-right:5px;
+    height:20px;
+}
+
+.chat_td_2{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+.drawTextInput{
+    padding:2px;
+    font-size:13px;
+    width:250px;
+    height:21px;
+    lineHeight :22px;
+    position:absolute;
+    border:1px solid #006699;
+    display:block;
+    z-index:9999;
+}
+
+
+.pointerImg{
+    position:absolute;
+    display:block;
+    z-index:9999;
+}
+
+.dispatchTable{
+    border-collapse:collapse;
+    font-size:13px;
+}
+
+.dispatchTrHead{
+    background-image:url(../images/toolbar/bg.gif);
+    font-weight:bold;
+}
+
+.dispatchTd{
+    border:1px solid #D6E3F2;
+}
+
+.mDetailTableHead{
+    background-image:url(../images/toolbar/bg.gif);
+    font-weight:bold;
+    text-align:left;
+    height:35px;
+    cursor:hand;
+}
+
+.mDetailTable{
+    border:0;
+    width:85%;
+    margin:20 80;
+    border-collapse:collapse;
+    font-size:13px;
+}
+
+.mDetailTable td{
+    height:25px;
+    border:1px solid #D6E3F2;
+}
+
+.dwMouseOver{
+    cursor:url(../images/netmeeting/pen.gif);
+    overflow:auto;
+    background:#a3bad9;
+}
+
+.dwMouseOut{
+    cursor:default;
+    overflow:auto;background:#a3bad9;
+}
+
+.dwImageDiv{
+    margin:0;
+    padding:0;   
+}
